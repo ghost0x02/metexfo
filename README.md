@@ -6,10 +6,7 @@
 <img src="https://img.shields.io/badge/PLATFORM-KALI_LINUX-green?style=for-the-badge&logo=linux">
 <img src="https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge">
 </p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-for-GitHub/master/Apps/Hacker.gif" width="600" alt="METEXFO Hacking">
-</p>
+<a href="https://hizliresim.com/gu9vdo8"><img src="https://i.hizliresim.com/gu9vdo8.gif" alt="ff"></a>
 
 <p align="center">
 
