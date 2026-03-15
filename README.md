@@ -34,7 +34,7 @@ git clone [https://github.com/ghost0x02/METEXFO.git](https://github.com/ghost0x0
 cd METEXFO
 pip install -r requirements.txt
 ```
-
+## 🔰 Örnek işlem
 ```
     ███╗   ███╗███████╗████████╗███████╗██╗  ██╗███████╗ ██████╗ 
     ████╗ ████║██╔════╝╚══██╔══╝██╔════╝╚██╗██╔╝██╔════╝██╔═══██╗
@@ -46,5 +46,7 @@ pip install -r requirements.txt
 [*] Analiz Ediliyor: 31.11.36.24
 [+] Port 2222: OpenSSH 9.6p1 tespit edildi.
 [+] Kritik Zafiyet Araması: Başlatıldı...
-[SUCCESS] Saldırı planı metexfo_elite.rc dosyasına kaydedildi.
+[GHOST0X02] RC dosyası >  metexfo_elite.rc
+>> KOMUT: msfconsole -q -r metexfo_elite.rc
+
 ```
