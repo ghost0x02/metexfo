@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-
+<i>Program genellikle 80-443-2222 portlarında etkilidir.</i>
 <i>VERSION 1.0 METEXFO - GHOST0X02</i>
 </p>
 
