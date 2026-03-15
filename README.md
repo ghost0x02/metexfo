@@ -43,9 +43,13 @@ pip install -r requirements.txt
     ██║ ╚═╝ ██║███████╗   ██║   ███████╗██╔╝ ██╗██║     ╚██████╔╝
     ╚═╝     ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝      ╚═════╝ 
 
-[*] Analiz Ediliyor: 31.11.36.24
+[*] Taranıyor...
+[+] OS Tespiti: Linux 4.15 - 5.19
 [+] Port 2222: OpenSSH 9.6p1 tespit edildi.
-[+] Kritik Zafiyet Araması: Başlatıldı...
+[PORT 80] http | Gizli
+[PORT 443] https | Gizli
+[PORT 2222] ssh | 9.6p1 Ubuntu 3ubuntu13.13 Ubuntu Linux; protocol 2.0
+
 [GHOST0X02] RC dosyası >  metexfo_elite.rc
 >> KOMUT: msfconsole -q -r metexfo_elite.rc
 
