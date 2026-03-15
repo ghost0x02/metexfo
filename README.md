@@ -12,7 +12,6 @@
 </p>
 
 <p align="center">
-<b>"Sessizce sız, veriyi al, iz bırakma."</b>
 
 <i>VERSION 1.0 METEXFO - GHOST0X02</i>
 </p>
