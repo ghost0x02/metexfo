@@ -32,6 +32,8 @@
 ```bash
 git clone [https://github.com/ghost0x02/METEXFO.git](https://github.com/ghost0x02/METEXFO.git)
 cd METEXFO
+python3 metexfo.py -t <HEDEF İP> -L <KENDİ İP ADRESİMİZ>
+
 ```
 ## 🔰 Örnek işlem
 ```
