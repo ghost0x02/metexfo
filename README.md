@@ -32,7 +32,6 @@
 ```bash
 git clone [https://github.com/ghost0x02/METEXFO.git](https://github.com/ghost0x02/METEXFO.git)
 cd METEXFO
-pip install -r requirements.txt
 ```
 ## 🔰 Örnek işlem
 ```
