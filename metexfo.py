@@ -92,7 +92,7 @@ class MetexfoElite:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", required=True, help="Hedef IP")
-    parser.add_argument("-L", "--lhost", required=True, help="Yerel IP (Dinleyici)")
+    parser.add_argument("-L", "--lhost", required=True, help="Yerel IP ")
     args = parser.parse_args()
 
     elite = MetexfoElite(args.target, args.lhost)
