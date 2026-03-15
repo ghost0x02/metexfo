@@ -1,4 +1,4 @@
-# 💀 METEXFO v1.0 - Elite Infiltration Framework
+# 💀 METEXFO v1.0 
 
 <p align="center">
   <img src="https://img.shields.io/badge/VERSION-1.0_ELITE-red?style=for-the-badge&logo=target">
