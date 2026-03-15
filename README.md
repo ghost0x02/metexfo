@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img src="https://i.giphy.com/media/V4NLRREH6L3X5C6H3u/giphy.gif" alt="Hacking Matrix GIF">
+  <img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-for-GitHub/master/Apps/Hacker.gif" width="600" alt="METEXFO Hacking">
 </p>
 
 <p align="center">
