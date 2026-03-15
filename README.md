@@ -30,7 +30,7 @@
 ## 🛠️ Kurulum & Hazırlık
 
 ```bash
-git clone [https://github.com/ghost0x02/METEXFO.git](https://github.com/ghost0x02/METEXFO.git)
+git clone https://github.com/ghost0x02/metexfo
 cd METEXFO
 python3 metexfo.py -t <HEDEF İP> -L <KENDİ İP ADRESİMİZ>
 
