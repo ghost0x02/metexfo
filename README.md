@@ -1,15 +1,20 @@
   # 💀 METEXFO v1.0 
 
 <p align="center">
-  <img src="https://img.shields.io/badge/VERSION-1.0_ELITE-red?style=for-the-badge&logo=target">
-  <img src="https://img.shields.io/badge/LANGUAGE-PYTHON3-blue?style=for-the-badge&logo=python">
-  <img src="https://img.shields.io/badge/PLATFORM-KALI_LINUX-green?style=for-the-badge&logo=linux">
-  <img src="https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge">
+<img src="https://img.shields.io/badge/VERSION-1.0_ELITE-red?style=for-the-badge&logo=target">
+<img src="https://img.shields.io/badge/LANGUAGE-PYTHON3-blue?style=for-the-badge&logo=python">
+<img src="https://img.shields.io/badge/PLATFORM-KALI_LINUX-green?style=for-the-badge&logo=linux">
+<img src="https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge">
 </p>
 
 <p align="center">
-  <b>"Program çoğunlukla 80-443-2222 portlarına etkilidir"</b><br>
-  <i>VERSION 1.0 METEXFO - GHOST0X02</i>
+<img src="https://i.giphy.com/media/V4NLRREH6L3X5C6H3u/giphy.gif" alt="Hacking Matrix GIF">
+</p>
+
+<p align="center">
+<b>"Sessizce sız, veriyi al, iz bırakma."</b>
+
+<i>VERSION 1.0 METEXFO - GHOST0X02</i>
 </p>
 
 ---
