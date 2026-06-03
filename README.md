@@ -1,25 +1,23 @@
-
 # 💀 METEXFO v5.0
 
 ```text
-                 ____________
-               /              \
-              /   __      __   \
+                     .--------.
+                    /          \
 
-             |   /  \    /  \   |
-             |  | 0 |  | 0 |  |
-             |   \_/      \_/   |      
-             |       \  /       |
-             |    _  _\/_  _    |
-              \  \_\____/_/    /
-               \   \====/     /
-                \____________/
+                   |   __  __   |
+                   |  /  \/  \  |
+                   |  |()||()|  |
+                   |  \__/\\__/  |
+                   |     ||     |
+                   |  \_`=='_/  |
+                    \  `----'  /
+                     '--------'
 
-    __  ___ ______ ______ ______ _  __ ______ ____  
-   /  |/  /  ____/_   __/  ____/ | |/ /  ____/ __ \ 
-  / /|_/ /  __|    | |  |  __|   |   /|  __|/ / / / 
- / /  / /  |____   | |  |  |____/   | |  | / /_/ /  
-/_/  /_/______/   /_/  /______/_/|_|_|  \____/ v5.0
+    __  ___   ______  ______   ______   _  __   ______  ____  
+   /  |/  /  / ____/ /_  __/  / ____/  | |/ /  / ____/ / __ \ 
+  / /|_/ /  / __/     / /    / __/     |   /  / /_    / / / / 
+ / /  / /  / /___    / /    / /___    /   |  / __/   / /_/ /  
+/_/  /_/  /_____/   /_/    /_____/   /_/|_| /_/      \____/   v5.0
 ```
 
 <p align="center">
@@ -151,3 +149,12 @@ Server username: root
 
 meterpreter > _
 ```
+
+---
+
+## ⚖️ Yasal Uyarı / Disclaimer
+**TR:** Bu araç yalnızca yasal sızma testleri ve eğitim faaliyetleri amacıyla geliştirilmiştir. İzin alınmamış hedef sistemler üzerinde kullanılması yasal sorumluluk doğurabilir. Kullanıcı, aracın kullanımından doğabilecek tüm hukuki sonuçlardan kendisi sorumludur.
+
+**EN:** This software is strictly developed for authorized penetration testing, security auditing, and educational practices. Unauthorized deployment against remote infrastructure is highly illegal and carries strict judicial consequences.
+
+**Developer:** `GHOST0X02` | **Version:** `5.0-Elite`
