@@ -56,7 +56,7 @@ cd metexfo
 pip3 install python-nmap colorama
 
 # 1. Aşama: Keşif ve RC Dosyası Üretimi
-python3 mme12.py -t <HEDEF_IP> -l <KENDİ_IP> --lang tr
+python3 metexfo.py -t <HEDEF_IP> -l <KENDİ_IP> --lang tr
 
 # 2. Aşama: Metasploit Üzerinde Çalıştırma
 msfconsole -q -r metexfo.rc
@@ -113,7 +113,7 @@ cd metexfo
 pip3 install python-nmap colorama
 
 # Phase 1: Recon & RC Blueprint Generation
-python3 mme12.py -t <TARGET_IP> -l <YOUR_LHOST> --lang en
+python3 metexfo.py -t <TARGET_IP> -l <YOUR_LHOST> --lang en
 
 # Phase 2: Fire the Automation via Metasploit
 msfconsole -q -r metexfo_final_agent.rc
