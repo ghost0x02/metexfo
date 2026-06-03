@@ -1,8 +1,4 @@
----
 
-### 2. 🌍 Çift Dilli Göz Alıcı `README.md` İçeriği
-
-```markdown
 # 💀 METEXFO v5.0 | Multi-Language Edition
 
 <p align="center">
