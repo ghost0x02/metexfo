@@ -108,8 +108,8 @@ The automation pipeline operates as follows:
 ### 🚀 Usage
 ```bash
 # Clone & Requirements
-git clone https://github.com
-cd METEXFO
+git clone https://github.com/ghost0x02/metexfo
+cd metexfo
 pip3 install python-nmap colorama
 
 # Phase 1: Recon & RC Blueprint Generation
