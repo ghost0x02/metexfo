@@ -1,4 +1,4 @@
-# 💀 METEXFO v5.0
+# METEXFO <3 v1.2
 
 ```text
 
@@ -23,13 +23,6 @@
 ```
 
 <p align="center">
-<img src="https://shields.io">
-<img src="https://shields.io">
-<img src="https://shields.io">
-<img src="https://shields.io">
-</p>
-
-<p align="center">
 <i>VERSION 1.2 METEXFO - GHOST0X02</i>
 </p>
 
@@ -43,7 +36,7 @@
 ## 🇹🇷 Türkçe Dökümantasyon
 
 ### 🌌 Genel Bakış & Çalışma Mantığı
-METEXFO v5.0, sızma testi süreçlerinde hedef sistemlerdeki **yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** tespit etmek için geliştirilmiş çift dilli, çoklu iş parçacıklı (Multi-threading) bir otomasyon aracıdır. 
+METEXFO v1.2, sızma testi süreçlerinde hedef sistemlerdeki **yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** tespit etmek için geliştirilmiş çift dilli, çoklu iş parçacıklı (Multi-threading) bir otomasyon aracıdır. 
 
 Yazılım şu adımlarla çalışır:
 1. **Keşif (Nmap Altyapısı):** Belirtilen hedeflerin kritik portlarını (`21, 80, 443, 3306, 8080`) tarar ve çalışan servislerin versiyon bilgilerini ayıklar.
@@ -58,15 +51,15 @@ Yazılım şu adımlarla çalışır:
 ### 🚀 Kullanım
 ```bash
 # Kurulum ve Bağımlılıklar
-git clone https://github.com
-cd METEXFO
+git clone https://github.com/ghost0x02/metexfo
+cd metexfo
 pip3 install python-nmap colorama
 
 # 1. Aşama: Keşif ve RC Dosyası Üretimi
 python3 mme12.py -t <HEDEF_IP> -l <KENDİ_IP> --lang tr
 
 # 2. Aşama: Metasploit Üzerinde Çalıştırma
-msfconsole -q -r metexfo_final_agent.rc
+msfconsole -q -r metexfo.rc
 ```
 
 ### ⚡ Sızma İşlemi Başarılı Olduğunda Alınacak Terminal Çıktısı
@@ -100,7 +93,7 @@ meterpreter > _
 ## 🇺🇸 English Documentation
 
 ### 🌌 Overview & Working Logic
-METEXFO v5.0 is a localized, multi-threaded security orchestrator designed to hunt down **configuration flaws (Misconfigurations)** and **exposed management panels** on target systems.
+METEXFO v1.2 is a localized, multi-threaded security orchestrator designed to hunt down **configuration flaws (Misconfigurations)** and **exposed management panels** on target systems.
 
 The automation pipeline operates as follows:
 1. **Reconnaissance (Nmap Engine):** Audits target IPs across critical ports (`21, 80, 443, 3306, 8080`) to extract precise service details.
@@ -159,4 +152,4 @@ meterpreter > _
 
 **EN:** This software is strictly developed for authorized penetration testing, security auditing, and educational practices. Unauthorized deployment against remote infrastructure is highly illegal and carries strict judicial consequences.
 
-**Developer:** `GHOST0X02` | **Version:** `5.0-Elite`
+**Developer:** `GHOST0X02` | **Version:** `1.2-Elite`
