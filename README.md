@@ -28,7 +28,7 @@
 
 <p align="center">
   <a href="#-türkçe-dökümantasyon"><b>🇹🇷 Türkçe</b></a> | 
-  <a href="#-english-documentation"><b>🇺🇸 English</b></a>
+  <a href="#-english-documentation"><b>🇺🇸/🇬🇧 English</b></a>
 </p>
 
 ---
